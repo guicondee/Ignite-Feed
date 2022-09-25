@@ -27,6 +27,17 @@ export function Widgets() {
 
           <p><a href="">#novoprojeto</a> <a href="">#nlw</a> <a href=""> #rocketseat</a></p>
         </div>
+
+        <form className={styles.commentForm}>
+          <strong>Deixe seu comentario</strong>
+          <textarea
+          placeholder='Escreva seu comentario'
+          />
+
+          <footer>
+            <button type='submit'>Publicar</button>
+          </footer>
+        </form>
      </main>
   )
 }
