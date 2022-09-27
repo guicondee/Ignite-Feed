@@ -4,6 +4,7 @@ import { Widgets } from "./Components/widgtes/Widgets"
 
 import global from './global.css'
 import styles from './App.module.css'
+import { Comment } from "./Components/Comment/Comment"
 
 export function App() {  
   return (

@@ -1,13 +1,15 @@
 import styles from './Widgets.module.css'
 
 import  guiProfile  from '../../assets/guiProfile.jpg'
+import { Comment } from '../Comment/Comment'
+import { Avatar } from '../Avatar/Avatar'
 
 export function Widgets() {
   return (
      <main className={styles.widgets}>
         <header>
           <div className={styles.author}>
-            <img className={styles.avatar} src={guiProfile} />
+            <Avatar hasBorder={true} src={guiProfile} />
 
             <div className={styles.authorInfo}>
               <strong>Guilherme Condé</strong>
@@ -38,6 +40,12 @@ export function Widgets() {
             <button type='submit'>Publicar</button>
           </footer>
         </form>
+
+        <div className={styles.commentList}>
+          <Comment />
+          <Comment />
+          <Comment />
+        </div>
      </main>
   )
 }

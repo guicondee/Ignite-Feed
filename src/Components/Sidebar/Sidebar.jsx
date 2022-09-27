@@ -2,6 +2,7 @@ import styles from './Sidebar.module.css'
 import { PencilLine } from 'phosphor-react'
 
 import  guiProfile  from '../../assets/guiProfile.jpg'
+import { Avatar } from '../Avatar/Avatar'
 
 export function Sidebar() {
   return (
@@ -13,7 +14,7 @@ export function Sidebar() {
       />
 
        <div className={styles.profile}>
-        <img className={styles.avatar} src={guiProfile}/>
+        <Avatar hasBorder={true} src={guiProfile} />
 
         <strong>Guilherme Condé</strong>
         <span>Web Developer</span>
