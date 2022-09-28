@@ -9,7 +9,7 @@ export function Widgets() {
      <main className={styles.widgets}>
         <header>
           <div className={styles.author}>
-            <Avatar hasBorder={true} src={guiProfile} />
+            <Avatar hasBorder={true} src='http://github.com/gustavowebjs.png' />
 
             <div className={styles.authorInfo}>
               <strong>Guilherme Condé</strong>
