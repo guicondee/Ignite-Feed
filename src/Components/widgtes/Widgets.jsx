@@ -5,8 +5,15 @@ import ptBr from 'date-fns/locale/pt-BR'
 import  guiProfile  from '../../assets/guiProfile.jpg'
 import { Comment } from '../Comment/Comment'
 import { Avatar } from '../Avatar/Avatar'
+import { useState } from 'react'
 
 export function Widgets({ author, publishedAt, content }) {
+  const [comments, setComments] = useState([
+     'Projeto maneiro cara!'
+  ])
+  
+  const [newCommentText, setNewCommentText] = useState('')
+
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBr,
   })
@@ -15,6 +22,17 @@ export function Widgets({ author, publishedAt, content }) {
     locale: ptBr,
     addSuffix: true
   })
+
+  function handleOnSubmit() {
+    event.preventDefault()
+
+     setComments([...comments, newCommentText])
+     setNewCommentText('')
+  }
+
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value)
+  }
 
   return (
      <main className={styles.widgets}>
@@ -44,9 +62,12 @@ export function Widgets({ author, publishedAt, content }) {
           })}
         </div>
 
-        <form className={styles.commentForm}>
+        <form onSubmit={handleOnSubmit} className={styles.commentForm}>
           <strong>Deixe seu comentario</strong>
           <textarea
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+          name='comment'
           placeholder='Escreva seu comentario'
           />
 
@@ -56,9 +77,9 @@ export function Widgets({ author, publishedAt, content }) {
         </form>
 
         <div className={styles.commentList}>
-          <Comment />
-          <Comment />
-          <Comment />
+          {comments.map(comment => {
+            return <Comment content={comment} />
+          })}
         </div>
      </main>
   )
