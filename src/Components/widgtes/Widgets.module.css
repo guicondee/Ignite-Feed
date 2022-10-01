@@ -1,7 +1,7 @@
 .widgets {
   background: var(--gray-800);
   border-radius: 8px;
-  padding: 2.4rem 4rem 0 4rem;
+  padding: 2.4rem 4rem 2.4rem 4rem;
 }
 
 .widgets + .widgets {
