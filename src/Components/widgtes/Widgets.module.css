@@ -114,9 +114,14 @@
   transition: .2s;
 }
 
-.commentForm button:hover {
-   
+.commentForm button[type=submit]:not(:disabled):hover {
   filter: brightness(1.2);
+  background: var(--gray-400);
+}
+
+.commentForm button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .commentList {
