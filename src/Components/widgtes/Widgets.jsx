@@ -13,6 +13,7 @@ export function Widgets({ author, publishedAt, content }) {
   ])
   
   const [newCommentText, setNewCommentText] = useState('')
+  
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBr,
@@ -32,6 +33,7 @@ export function Widgets({ author, publishedAt, content }) {
 
   function handleNewCommentChange() {
     setNewCommentText(event.target.value)
+    event.target.setCustomValidity('')
   }
 
   function deleteComment(commentToDelete ) {
@@ -40,6 +42,12 @@ export function Widgets({ author, publishedAt, content }) {
     }) 
     setComments(commentWithoutDeleteOne)
   }
+
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity('Este campo é obrigatorio')
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0
 
   return (
      <main className={styles.widgets}>
@@ -76,10 +84,12 @@ export function Widgets({ author, publishedAt, content }) {
           onChange={handleNewCommentChange}
           name='comment'
           placeholder='Escreva seu comentario'
+          required
+          onInvalid={handleNewCommentInvalid}
           />
 
           <footer>
-            <button type='submit'>Publicar</button>
+            <button type='submit' disabled={isNewCommentEmpty}>Publicar</button>
           </footer>
         </form>
 
